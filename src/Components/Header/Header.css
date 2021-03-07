@@ -1,0 +1,9 @@
+.button-container button{
+    margin: 5px;
+}
+.header-section{
+    border: 1px solid purple;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 20px;
+}
