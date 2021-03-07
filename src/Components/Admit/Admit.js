@@ -3,7 +3,23 @@ import {useForm} from 'react-hook-form'
 const Admit = () => {
     const {register, handleSubmit} = useForm();
     const onSubmit = data => {
-        console.log(data);
+        insertData(data);
+    }
+    const insertData = (data) => {
+        console.log("inserted inside");
+        console.log(JSON.stringify(data));
+        fetch('http://localhost:3010/addNewPatient', {
+            method:'POST',
+            body:JSON.stringify(data),
+            headers: {
+               "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            console.log('post success');
+        })
     }
     return (
         <div className="container">
@@ -11,7 +27,7 @@ const Admit = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <label>Patient Name  </label>
-                <input className="form-control" ref={register} placeholder="Patient Name" name="patientName" required/>
+                <input className="form-control" ref={register} placeholder="Patient Name" name="name" required/>
                 <br/>
                 
                 <label>Age  </label>
@@ -19,7 +35,7 @@ const Admit = () => {
                 <br/>
                 
                 <label>Cause of Admission : </label>
-                <input className="form-control" ref={register} placeholder="Cause of Admission" name="reasonOfAdmission" required/>
+                <input className="form-control" ref={register} placeholder="Cause of Admission" name="cause" required/>
                 <br/>
 
                 <label>Assigned Doctor  </label>
@@ -27,7 +43,7 @@ const Admit = () => {
                 <br/>
                 
                 <label>Room  </label>
-                <input type="number" className="form-control" ref={register} placeholder="Room number" name="roomNumber" required/>
+                <input type="number" className="form-control" ref={register} placeholder="Room number" name="room" required/>
                 <br/>
 
                 <button className="btn btn-outline-success">Submit</button>
