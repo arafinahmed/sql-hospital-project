@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {useForm} from 'react-hook-form'
 const Admit = () => {
+    const [successful, setSuccessful] = useState(false);
     const {register, handleSubmit} = useForm();
     const onSubmit = data => {
         insertData(data);
     }
     const insertData = (data) => {
-        console.log("inserted inside");
-        console.log(JSON.stringify(data));
+        setSuccessful(false);
         fetch('http://localhost:3010/addNewPatient', {
             method:'POST',
             body:JSON.stringify(data),
@@ -17,8 +17,9 @@ const Admit = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             console.log('post success');
+            console.log(data);
+            setSuccessful(true);
         })
     }
     return (
@@ -47,6 +48,10 @@ const Admit = () => {
                 <br/>
 
                 <button className="btn btn-outline-success">Submit</button>
+                
+                {
+                    successful && <p>Added to the database</p>
+                }
 
             </form>
             

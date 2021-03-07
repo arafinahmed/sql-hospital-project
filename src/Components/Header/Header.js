@@ -11,7 +11,8 @@ const Header = () => {
                 
                 <Link to="/admit"><button className="btn btn-outline-primary">Admit</button></Link>
                 <Link to="/discharge"><button className="btn btn-outline-danger">Discharge</button></Link>
-                <button className="btn btn-outline-primary">Show All Patient</button>
+                <Link to="/allPatients"><button className="btn btn-outline-primary">Show All Patient</button></Link>
+                
                 <button className="btn btn-outline-primary">Search</button>
             </div>
         </div>
