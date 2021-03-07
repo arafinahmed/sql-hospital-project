@@ -8,6 +8,7 @@ import {
   Route
 } from "react-router-dom";
 import PatientsContainer from './Components/PatientsContainer/PatientsContainer';
+import Search from './Components/Search/Search';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/allPatients">
           <PatientsContainer></PatientsContainer>
+        </Route>
+        <Route path="/search">
+          <Search></Search>
         </Route>
 
       </Switch>

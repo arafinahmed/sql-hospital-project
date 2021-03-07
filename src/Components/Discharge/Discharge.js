@@ -30,8 +30,6 @@ const Discharge = () => {
                 <br/>
                           
                 <button className="btn btn-outline-success">Submit</button>
-                
-                
 
             </form>
             
