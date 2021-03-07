@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const Discharge = () => {
     const {register, handleSubmit} = useForm();
+    const [condition, setCondition] = useState(false);
     const onSubmit = data => {
         removeData(data);
     }
     const removeData = data => {
-        fetch('http://localhost:3010/discharge', {
+        setCondition(false);
+        fetch('https://arafin-project.herokuapp.com/discharge', {
             method:'POST',
             body:JSON.stringify(data),
             headers: {
@@ -17,6 +19,7 @@ const Discharge = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
+            setCondition(true);
         })
 
     }
@@ -30,6 +33,9 @@ const Discharge = () => {
                 <br/>
                           
                 <button className="btn btn-outline-success">Submit</button>
+                {
+                    condition && <p>Removed from database</p>
+                }
 
             </form>
             

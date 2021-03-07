@@ -5,7 +5,7 @@ const PatientsContainer = () => {
     const [patients, setPatients] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3010/allPatients')
+        fetch('https://arafin-project.herokuapp.com/allPatients')
         .then(res => res.json())
         .then(data => {
             console.log(data);

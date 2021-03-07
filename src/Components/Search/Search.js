@@ -9,7 +9,7 @@ const Search = () => {
         findPatient(data);
     }
     const findPatient = (data) => {
-        fetch('http://localhost:3010/search', {
+        fetch('https://arafin-project.herokuapp.com/search', {
             method:'POST',
             body:JSON.stringify(data),
             headers: {

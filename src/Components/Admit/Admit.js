@@ -8,7 +8,7 @@ const Admit = () => {
     }
     const insertData = (data) => {
         setSuccessful(false);
-        fetch('http://localhost:3010/addNewPatient', {
+        fetch('https://arafin-project.herokuapp.com/addNewPatient', {
             method:'POST',
             body:JSON.stringify(data),
             headers: {
